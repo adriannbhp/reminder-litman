@@ -18,13 +18,13 @@
 					<td>Barang</td>
 					<td>Jml</td>
 					<td>Tgl. Harus kembali</td>
-					<td>Terlambat</td>
+					<td>Jatuh Tempo</td>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 					$no	=0;
-					$query	=mysqli_query($conn, "SELECT * FROM tb_sewabarang WHERE tgl_kembali < '$sekarang' AND status IS NULL ORDER BY tgl_kembali");
+					$query	=mysqli_query($conn, "SELECT * FROM tb_sewabarang WHERE tgl_kembali > '$sekarang' AND status IS NULL ORDER BY tgl_kembali");
 					while($data	=mysqli_fetch_array($query)){
 					$kembali	=new DateTime($data['tgl_kembali']);
 					$lambat		=new DateTime($sekarang);
